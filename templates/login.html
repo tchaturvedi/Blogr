@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% from "_formhelpers.html" import render_field %}
+    <h2> Login </h2> 
+
+    <form method=post action="" autocomplete='off'>
+          <dl>
+            {{ form.csrf_token }}
+            {{ render_field(form.username) }}
+            {{ render_field(form.password) }}
+          </dl>
+      <p><input type=submit class='btn btn-success'>
+    </form>
+{% endblock %}

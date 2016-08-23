@@ -1,0 +1,20 @@
+
+        <div class="starter-template">
+            <h1>Bootstrap starter template</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        </div>
+
+
+        <div class='jumbotron'>
+            {% block content %}
+            {% endblock %}
+        </div>
+
+
+        {% for message in get_flashed_messages() %}
+        <div class='container'>
+            <div class='alert alert-danger'>
+                <small>{{ message }}</small>
+            </div>
+        </div>
+        {% endfor %}

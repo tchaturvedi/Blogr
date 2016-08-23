@@ -1,0 +1,26 @@
+small {
+    color: grey;
+    text-align: center;
+}
+
+.container {
+    /*display: flexbox;*/
+    /*align-items: center;*/
+    /*margin: 0 auto;*/
+    /*width: 900px;*/
+}
+
+.ok{
+    font-family: 'Georgia';
+    font-size: 90%;
+    color: grey;
+}
+
+.errors {
+    font-family: 'Georgia';
+    font-size: 90%;
+}
+
+.jumbotron {
+    margin-bottom: 0px;
+}

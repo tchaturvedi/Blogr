@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="An amatuer blogging site called Blogr">
+    <meta name="author" content="Mustafa Adam">
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel='stylesheet'>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel='stylesheet'>
+    <link href="{{ url_for('static', filename='badge.note.png') }}" rel="icon">
+
+    <title>Blogr</title>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </div><!--/#navbar -->
+        </div> <!--/.container-->
+    </nav>
+
+    <br><br>
+
+    <div class="jumbotron container-fluid">
+
+        <div class="container">
+            <h1>Bootstrap starter template</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+
+
+            <div class='container'>
+                {% block content %}
+                {% endblock %}
+            </div>
+
+
+            <br>
+            {% for message in get_flashed_messages() %}
+            <div class='container'>
+                <span class='alert alert-danger'>
+                    <small>{{ message }}</small>
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div><!-- /.jumbotron container-fluid -->
+
+    <div class='carousel slide' data-ride='carousel'>
+        <div class='continaer' style='background: red;'> </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../static/js/jquery.min.js"><\/script>')</script>
+    <!--<script src="../../dist/js/bootstrap.min.js"></script>-->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}">
+  </body>
+</html>
+
