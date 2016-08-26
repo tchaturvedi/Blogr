@@ -9,10 +9,16 @@ from models import User, db
 app.config.from_object('config.Development')
 
 
+
 @app.route('/')
 @login_required
 def home():
-    return render_template('index.html')
+    # The if statement to remove the login button at the navbar if
+    # user is already logged in
+    if 'logged_in' in session:
+        return render_template('index.html', logged_in=True)
+    else:
+        return render_template('index.html')
 
 
 @app.route('/welcome')
@@ -28,8 +34,6 @@ def register():
         email    = form.email.data
         password = form.password.data
         user = User(username, email, password, posts=[])
-# Potential trouble here
-        # if not db.session.query(User.username == username and User.email == email).first():
         if not db.session.query(User).filter(User.username == username and User.email == email).first():
             db.session.add(user)
             db.session.commit()

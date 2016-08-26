@@ -1,5 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p> Home page </p> 
+
+    <div class="container">
+        <h1>Welcome to Blogr</h1>
+        <!--<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
+        <p class='lead'><em>Blogr</em> website I made as a blog. Each blog will have a comment section for viewers to add input the blog entry.
+        </p>
+    </div>
+
+    <!-- To pass the logged_in variable to the base.html template
+         Where it will be used to remove the login button when user
+         has already logged in-->
+    {% if logged_in %}
+        {% set logged_in = True %}
+    {% endif %}
+
+    {% block blog %}
+
+    {% endblock %}
+
 {% endblock %}
