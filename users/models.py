@@ -1,12 +1,5 @@
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import ForeignKey
-from flask_bcrypt import Bcrypt
-from views import app
-
-
-bcrypt = Bcrypt(app)
-db = SQLAlchemy(app)
-
+from run import db, bcrypt
 
 class User(db.Model):
     __tablename__ = 'users'

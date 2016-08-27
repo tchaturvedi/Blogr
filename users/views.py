@@ -1,32 +1,12 @@
-from flask import Flask, render_template, redirect, url_for, session, flash
-from flask import request
-from utils import login_required
-from forms import RegisterationForm, LoginForm
+from flask import Blueprint, session, render_template, flash
+from flask import url_for, redirect, request
 from sqlalchemy.orm.exc import NoResultFound
+from .forms import RegisterationForm, LoginForm
 
-app = Flask(__name__)
-from models import User, db
-app.config.from_object('config.Development')
+users_template = Blueprint('users', __name__, template_folder='templates')
+from .models import User, db
 
-
-
-@app.route('/')
-@login_required
-def home():
-    # The if statement to remove the login button at the navbar if
-    # user is already logged in
-    if 'logged_in' in session:
-        return render_template('index.html', logged_in=True)
-    else:
-        return render_template('index.html')
-
-
-@app.route('/welcome')
-def welcome():
-    return render_template('welcome.html')
-
-
-@app.route('/register', methods=['GET', 'POST'])
+@users_template.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterationForm()
     if request.method == 'POST' and form.validate_on_submit():
@@ -44,7 +24,7 @@ def register():
     return render_template('register.html', form=form)
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@users_template.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit() and request.method == 'POST':
@@ -69,11 +49,11 @@ def login():
     return render_template('login.html', form=form)  # for a GET request
 
 
-@app.route('/logout')
+@users_template.route('/logout')
 def logout():
     if 'logged_in' in session:
         session.pop('logged_in', None)  # pop and replace with None
         flash('You logged out')
     else:
         flash('You need to be logged in to log out')
-    return redirect(url_for('welcome'))
+    return redirect(url_for('users_template.welcome'))

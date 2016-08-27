@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<div class="container">
+		<h1>Welcome to Blogr</h1>
+		<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+		<p class='lead'><em>Blogr</em> website I made as a blog. Each blog will have a comment section for viewers to add input the blog entry.
+		</p>
+	</div>
+
+	<!-- To pass the logged_in variable to the base.html template
+		 Where it will be used to remove the login button when user
+		 has already logged in-->
+    <!--{% if logged_in %}-->
+        <!--{% set logged_in = True %}-->
+    <!--{% endif %}-->
+
+    <!--{% block blog %}-->
+
+    <!--{% endblock %}-->
+
+    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCFW7Kxe-UO0c8TSFyEiPS3rqkekeydgBA'></script><div style='overflow:hidden;height:418px;width:710px;'><div id='gmap_canvas' style='height:418px;width:710px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://addmap.net/'>https://Addmap.net</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=e183105491dddeb85241cb00a5b760a2ae51a26a'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:14,center:new google.maps.LatLng(24.4868117,54.36466189999999),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(24.4868117,54.36466189999999)});infowindow = new google.maps.InfoWindow({content:'<strong>Pokemon Abu Dhabi</strong><br>Zayed First<br> Abu Dhabi<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+{% endblock %}
