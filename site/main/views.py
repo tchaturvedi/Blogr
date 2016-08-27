@@ -1,7 +1,7 @@
 # from flask import render_template, redirect, url_for, session, flash
 from flask import render_template, session
 from flask import Blueprint
-from utils import login_required
+from ..utils import login_required
 
 main_template = Blueprint('main', __name__, template_folder='templates')
 # from ..run import db
@@ -22,6 +22,3 @@ def home():
 @main_template.route('/welcome')
 def welcome():
     return render_template('welcome.html')
-
-def page_not_found(e):
-    return render_template('404.html'), 404

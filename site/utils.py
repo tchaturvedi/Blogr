@@ -1,4 +1,4 @@
-from flask import session, flash, redirect, url_for
+from flask import session, flash, redirect, url_for, render_template
 from functools import wraps
 
 def login_required(function):
@@ -10,3 +10,6 @@ def login_required(function):
             flash('You need to login first')
             return redirect(url_for('login'))
     return inner
+
+def page_not_found(e):
+    return render_template('404.html'), 404

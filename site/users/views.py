@@ -4,7 +4,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from .forms import RegisterationForm, LoginForm
 
 users_template = Blueprint('users', __name__, template_folder='templates')
-from .models import User, db
+from ..models import User, db
 
 @users_template.route('/register', methods=['GET', 'POST'])
 def register():

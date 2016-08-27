@@ -1,5 +1,5 @@
 from sqlalchemy import ForeignKey
-from run import db, bcrypt
+from . import db, bcrypt
 
 class User(db.Model):
     __tablename__ = 'users'
